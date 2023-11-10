@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class TestFlightSearch extends BaseTest {
 
   @Test
-  public void firstTest() {
+  public void testSearchResults() {
     HomePage homePage = new HomePage(driver);
     SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
 
