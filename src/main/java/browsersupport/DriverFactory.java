@@ -2,7 +2,6 @@ package browsersupport;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +15,7 @@ public class DriverFactory {
 
     if (null == browser || browser.contains("chrome")) {
       WebDriverManager.chromedriver().setup();
-      driver =
-          (RemoteWebDriver)
-              WebDriverManager.chromedriver().capabilities(getChromeOptions()).create();
+      driver = (RemoteWebDriver) WebDriverManager.chromedriver().create();
     } else if (browser.contains("firefox")) {
       WebDriverManager.firefoxdriver().setup();
       driver = (RemoteWebDriver) WebDriverManager.firefoxdriver().create();
@@ -38,15 +35,5 @@ public class DriverFactory {
 
   public static String getSessionId() {
     return driver.getSessionId().toString();
-  }
-
-  static ChromeOptions getChromeOptions() {
-    ChromeOptions options = new ChromeOptions();
-    //    Proxy proxy = new Proxy();
-    //    proxy.setAutodetect(false);
-    //    proxy.setNoProxy("no_proxy-var");
-    //    options.setCapability("proxy", proxy);
-    options.addArguments("--no-proxy-server");
-    return options;
   }
 }
