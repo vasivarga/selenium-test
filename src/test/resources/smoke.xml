@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Smoke test suite" configfailurepolicy="continue">
+
+    <listeners>
+        <listener class-name="testlisteners.DefaultTestListener"/>
+    </listeners>
+
+    <test name="Smoke">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="web.TestFlightSearch"/>
+        </classes>
+    </test>
+
+
+</suite>
